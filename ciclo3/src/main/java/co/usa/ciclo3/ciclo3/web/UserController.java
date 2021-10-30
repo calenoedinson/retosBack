@@ -1,4 +1,4 @@
-package co.usa.ciclo3.ciclo3.oauth2;
+package co.usa.ciclo3.ciclo3.web;
 
 import java.util.Collections;
 import java.util.Map;
