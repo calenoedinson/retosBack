@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserController {   
-    @GetMapping("/")
+   /* @GetMapping("/")
     public String helloword(){
         return "no es necesario estar conectado";
     }
@@ -21,9 +21,9 @@ public class UserController {
     @GetMapping("/no-restriccion")
     public String noRestricted(){
         return "no es necesario estar conectado";
-    }    
+    }  */  
     
-    @GetMapping("/restringido")
+    @GetMapping("/user")
     public Map<String ,Object> user(@AuthenticationPrincipal OAuth2User principal){
         return Collections.singletonMap("name", principal.getAttribute("name"));
     }    

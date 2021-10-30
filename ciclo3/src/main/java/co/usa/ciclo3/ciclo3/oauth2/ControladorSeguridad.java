@@ -5,7 +5,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
@@ -16,13 +15,13 @@ public class ControladorSeguridad extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/**").authorizeRequests()
+        /*http.antMatcher("/**").authorizeRequests()
                 .antMatchers(new String[]{"/","/no-restriccion"}).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .oauth2Login();
+        */               
         
-        /*
         http.authorizeRequests(a -> a
                 .antMatchers("/", "/url/**", "/error", "/webjars/**", "/Reservation/**",
                         "/client/**", "/Score/**", "/Message/**",
@@ -31,9 +30,9 @@ public class ControladorSeguridad extends WebSecurityConfigurerAdapter {
         ).exceptionHandling(e -> e
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
         ).oauth2Login();
-         */
+         
         
-        http.cors().and().csrf().disable();
+       http.cors().and().csrf().disable(); 
 
     }
 
