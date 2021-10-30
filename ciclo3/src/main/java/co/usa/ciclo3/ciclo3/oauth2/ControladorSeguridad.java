@@ -23,13 +23,12 @@ public class ControladorSeguridad extends WebSecurityConfigurerAdapter {
         */               
         
         http.authorizeRequests(a -> a
-                .antMatchers("/", "/url/**", "/error", "/webjars/**", "/Reservation/**",
-                        "/client/**", "/Score/**", "/Message/**",
-                        "/Cabin/**", "/Category/**").permitAll()
+                .antMatchers("/", "/error", "/webjars/**", "/api/**"
+                        ).permitAll()
                 .anyRequest().authenticated()
         ).exceptionHandling(e -> e
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
-        ).oauth2Login();
+        ).oauth2Login().defaultSuccessUrl("/", true);
          
         
        http.cors().and().csrf().disable(); 
