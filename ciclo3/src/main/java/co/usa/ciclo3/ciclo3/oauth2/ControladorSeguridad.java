@@ -28,8 +28,8 @@ public class ControladorSeguridad extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
         ).exceptionHandling(e -> e
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
-        ).oauth2Login().defaultSuccessUrl("/", true);
-         
+        ).oauth2Login();
+             //   .defaultSuccessUrl("/", true);         
         
        http.cors().and().csrf().disable(); 
 
